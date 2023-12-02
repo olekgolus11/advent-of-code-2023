@@ -1,15 +1,10 @@
-import * as fs from "node:fs";
+import FileService from "./utils/FileService";
 
-let fileContent: string;
-let fileContentArray: string[] = [];
-try {
-    fileContent = fs.readFileSync("input-files/day1_input1.txt", "utf-8");
-    fileContentArray = fileContent.split("\n");
-} catch (error) {
-    console.error(error);
-}
+const fileService = new FileService();
 
-const allMergedNumbers = fileContentArray.map((row) => {
+const fileContent = fileService.getFileContentRows("day1_input1.txt");
+
+const allMergedNumbers = fileContent.map((row) => {
     const digitsInARow = String(row).match(/\d/g);
     const firstNumber: string = String(digitsInARow![0]);
     const lastNumber: string = String(digitsInARow![digitsInARow!.length - 1]);

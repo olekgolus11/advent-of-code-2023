@@ -1,13 +1,8 @@
-import * as fs from "node:fs";
+import FileService from "./utils/FileService";
 
-let fileContent: string;
-let fileContentArray: string[] = [];
-try {
-    fileContent = fs.readFileSync("input-files/day1_input1.txt", "utf-8");
-    fileContentArray = fileContent.split("\n");
-} catch (error) {
-    console.error(error);
-}
+const fileService = new FileService();
+
+const fileContent = fileService.getFileContentRows("day1_input1.txt");
 
 const textNumbersDictionary = {
     one: 1,
@@ -21,7 +16,7 @@ const textNumbersDictionary = {
     nine: 9,
 };
 
-const allMergedNumbers = fileContentArray.map((row) => {
+const allMergedNumbers = fileContent.map((row) => {
     const leftDigitAsText = String(row).match(/(?:\d|one|two|three|four|five|six|seven|eight|nine)/)![0];
     const rightDigitAsText = String(row.split("").reverse().join("")).match(/(?:\d|eno|owt|eerht|ruof|evif|xis|neves|thgie|enin)/)![0];
     console.log("\n");
