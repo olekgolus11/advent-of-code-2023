@@ -23,6 +23,17 @@ class FileService {
             throw error;
         }
     }
+
+    getFileContentCells(fileName: string) {
+        try {
+            const fileContent = this.getFileContentRows(fileName);
+            const fileContentCells = fileContent.map((row) => row.split(""));
+            return fileContentCells;
+        } catch (error) {
+            console.error(`Encountered error while opening file ${fileName}`);
+            throw error;
+        }
+    }
 }
 
 export default FileService;
