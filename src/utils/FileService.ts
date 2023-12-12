@@ -24,10 +24,10 @@ class FileService {
         }
     }
 
-    getFileContentCells(fileName: string) {
+    getFileContentCells(fileName: string, delimiter: string = "") {
         try {
             const fileContent = this.getFileContentRows(fileName);
-            const fileContentCells = fileContent.map((row) => row.split(""));
+            const fileContentCells = fileContent.map((row) => row.split(delimiter));
             return fileContentCells;
         } catch (error) {
             console.error(`Encountered error while opening file ${fileName}`);
