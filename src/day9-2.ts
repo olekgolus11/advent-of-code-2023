@@ -24,8 +24,9 @@ fileContent.forEach((row) => {
     }
 
     let foundNumber: number = 0;
-    allReducedRows.reverse().forEach((row) => {
-        foundNumber += row[row.length - 1];
+    allReducedRows.reverse().forEach((row, index) => {
+        if (index == 0) return;
+        foundNumber = row[0] - foundNumber;
     });
     answer += foundNumber;
 });
