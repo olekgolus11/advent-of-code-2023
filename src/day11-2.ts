@@ -1,5 +1,4 @@
 import FileService from "./utils/FileService";
-import fs from "fs";
 
 interface GalaxyCoordinates {
     row: number;
