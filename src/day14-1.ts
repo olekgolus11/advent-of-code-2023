@@ -23,8 +23,6 @@ const slideRockUp = (rowIndex: number, colIndex: number) => {
 
 const slideAllRocksOnce = () => {
     field.forEach((row, rowIndex) => {
-        if (rowIndex === 0) return; // skip first row
-
         row.forEach((tile, colIndex) => {
             const thisTile = tile as Tile;
 
